@@ -49,3 +49,22 @@ class Mage(Character):
     def display_stats(self):
         previous_info = super().display_stats()
         return f'{previous_info} | Mana: {self._mana} | Max Mana: {self._max_mana}'
+
+    def to_dict(self):
+        data = super().to_dict()
+        data['Mana'] = self._mana
+        data['Max Mana'] = self._max_mana
+
+    @classmethod
+    def from_dict(cls, derived_data):
+        mage = cls(derived_data['Name'], derived_data['Max Health'], derived_data['Mana'])
+        mage._mana = derived_data['Mana']
+        mage._max_mana = derived_data['Mana']
+        return mage
+
+
+
+
+
+
+

@@ -76,3 +76,28 @@ class Warrior(Character):
     def display_stats(self):
         previous_info = super().display_stats()
         return f'{previous_info} | Armor: {self._armor}'
+
+    def to_dict(self):
+        data = super().to_dict()
+        data['Armor'] = self._armor
+        data['Damage'] = self._damage
+        data['Weapon'] = self._weapon
+        return data
+
+    @classmethod
+    def from_dict(cls, derived_data):
+        warrior = cls(derived_data['Name'], derived_data['Max Health'], derived_data['Armor'])
+        warrior._damage = derived_data['Damage']
+        warrior._weapon = derived_data['Weapon']
+        return warrior
+
+
+
+
+
+
+
+
+
+
+

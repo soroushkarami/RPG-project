@@ -92,3 +92,30 @@ class Character:
     def display_stats(self):
         return (f'Name: {self._name} | Level: {self._level} | '
                 f'Health: {self._health} | Max Health: {self._max_health}')
+
+    def to_dict(self):  # to make it ready for file management: writing
+        base_dict = {}
+        base_dict['Class'] = self.__class__.__name__
+        base_dict['Name'] = self._name
+        base_dict['Level'] = self._level
+        base_dict['Health'] = self._health
+        base_dict['Max Health'] = self._max_health
+        return base_dict
+
+    @classmethod
+    def from_dict(cls, derived_data):  # to make it ready for file management: reading
+        base_character = cls(derived_data['Name'], derived_data['Max Health'])
+        base_character._level = derived_data['Level']
+        base_character._health = derived_data['Health']
+        base_character._max_health = derived_data['Max Health']
+        return base_character
+
+
+
+
+
+
+
+
+
+

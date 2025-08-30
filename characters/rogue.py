@@ -22,3 +22,13 @@ class Rogue(Character):
     def display_stats(self):
         previous_info = super().display_stats()
         return f'{previous_info} | Stealth Level: {self._stealth_level}'
+
+    def to_dict(self):
+        data = super().to_dict()
+        data['Stealth Level'] = self._stealth_level
+        return data
+
+    @classmethod
+    def from_dict(cls, derived_data):
+        rogue = cls(derived_data['Name'], derived_data['Max Health'], derived_data['Stealth Level'])
+        return rogue
