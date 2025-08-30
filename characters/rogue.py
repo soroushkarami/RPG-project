@@ -2,7 +2,7 @@ from base_character import Character
 import random
 
 class Rogue(Character):
-    def __init__(self, name, base_health, stealth_level):
+    def __init__(self, name: str, base_health: int, stealth_level: int):
         super().__init__(name, base_health)
         self._stealth_level = stealth_level
 

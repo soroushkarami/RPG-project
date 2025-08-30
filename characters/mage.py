@@ -1,7 +1,7 @@
 from base_character import Character
 
 class Mage(Character):
-    def __init__(self, name, base_health, mana):
+    def __init__(self, name: str, base_health: int, mana: int):
         super().__init__(name, base_health)
         self._mana = mana
         self._max_mana = mana
@@ -18,7 +18,7 @@ class Mage(Character):
             print(f'{e}: Invalid mana input!')
             raise
         if value <= 0:
-            raise ValueError('Mana value must be positive!')
+            raise ValueError(f'Mana value must be positive!')
         self._mana = value
 
     def level_up(self):
@@ -39,12 +39,12 @@ class Mage(Character):
             print(f'{e}: Invalid cost!')
             raise
         if spell_cost <= 0:
-            raise ValueError('Spell cost must be positive!')
+            raise ValueError(f'Spell cost must be positive!')
         if spell_cost > self._max_mana:
-            raise ValueError('Spell is locked at this level!')
+            raise ValueError(f'Spell is locked at this level!')
         self._mana -= spell_cost
         if self._mana <= 0:
-            raise ValueError('Not enough mana!')
+            raise ValueError(f'Not enough mana!')
 
     def display_stats(self):
         previous_info = super().display_stats()
