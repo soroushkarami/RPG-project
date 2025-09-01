@@ -93,7 +93,7 @@ class Character:
         return (f'Name: {self._name} | Level: {self._level} | '
                 f'Health: {self._health} | Max Health: {self._max_health}')
 
-    def to_dict(self):  # to make it ready for file management: writing
+    def to_dict(self):  # to make it ready for file management: writing to json file
         base_dict = {}
         base_dict['Class'] = self.__class__.__name__
         base_dict['Name'] = self._name
@@ -103,7 +103,7 @@ class Character:
         return base_dict
 
     @classmethod
-    def from_dict(cls, derived_data):  # to make it ready for file management: reading
+    def from_dict(cls, derived_data):  # to make it ready for file management: reading from json file
         base_character = cls(derived_data['Name'], derived_data['Max Health'])
         base_character._level = derived_data['Level']
         base_character._health = derived_data['Health']

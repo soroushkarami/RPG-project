@@ -1,4 +1,4 @@
-from base_character import Character
+from .base_character import Character
 
 class Warrior(Character):
     def __init__(self, name: str, base_health: int, armor: int):

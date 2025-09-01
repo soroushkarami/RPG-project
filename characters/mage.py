@@ -1,4 +1,4 @@
-from base_character import Character
+from .base_character import Character
 
 class Mage(Character):
     def __init__(self, name: str, base_health: int, mana: int):
@@ -54,6 +54,7 @@ class Mage(Character):
         data = super().to_dict()
         data['Mana'] = self._mana
         data['Max Mana'] = self._max_mana
+        return data
 
     @classmethod
     def from_dict(cls, derived_data):
