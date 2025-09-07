@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 #    Validation
 
 
-path = r'F:\python\RPG_Characters\utils\characters.json'
+path = os.path.join(os.path.dirname(__file__), 'utils', 'characters.json')      # creating a relative path
 def save(character):
     logger.debug(f'"save" method is called for {character}...')
     if os.path.exists(path):
